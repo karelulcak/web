@@ -3,99 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karel Ulčák | Specialista podpory a technologií</title>
+    <title>Karel Ulčák | Technicko-administrativní specialista</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        :root { --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --accent: #2563eb; --border: #e2e8f0; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
-        header { max-width: 1000px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: center; }
-        .profile-img { width: 200px; height: 260px; border-radius: 12px; object-fit: cover; border: 1px solid var(--border); }
-        .container { max-width: 1000px; margin: 0 auto 60px; padding: 0 20px; }
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0; }
-        .skill-card { background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--border); border-top: 4px solid var(--accent); }
-        .main-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; }
+        :root {
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --accent: #2563eb;
+        }
+
+        body.dark-mode {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --accent: #60a5fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; transition: 0.3s; }
+
+        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px; }
+        
+        header { max-width: 1000px; margin: 20px auto; padding: 0 20px; display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: center; }
+        .profile-img { 
+            width: 200px; 
+            height: 250px; 
+            border-radius: 12px; 
+            object-fit: cover; 
+            object-position: center;
+            border: 1px solid var(--border);
+        }
+
+        .container { max-width: 1000px; margin: 0 auto 60px auto; padding: 0 20px; }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 20px 0 40px 0; }
+        .skill-card { background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--border); }
+        .skill-card i { font-size: 1.5rem; color: var(--accent); margin-bottom: 10px; display: block; }
+        .skill-card h4 { margin-bottom: 5px; color: var(--text); }
+
+        .main-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 25px; }
         .card { background: var(--card); padding: 25px; border-radius: 15px; border: 1px solid var(--border); margin-bottom: 25px; }
-        h1 { margin: 0; font-size: 2.5rem; }
-        h3 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-top: 0; }
-        .btn-cv { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: white; text-decoration: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; margin-top: 20px; }
-        .job-item { margin-bottom: 20px; padding-left: 15px; border-left: 2px solid var(--accent); }
-        @media (max-width: 768px) { header, .main-content { grid-template-columns: 1fr; text-align: center; } .profile-img { margin: 0 auto; } }
+        h3 { color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-size: 1.2rem; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+
+        .job-item { margin-bottom: 20px; position: relative; padding-left: 20px; border-left: 2px solid var(--border); }
+        .job-header { font-weight: 700; display: flex; justify-content: space-between; flex-wrap: wrap; color: var(--accent); }
+        .job-desc { font-size: 0.9rem; color: var(--text-muted); margin-top: 5px; }
+
+        .btn-cv { 
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--accent); color: white; text-decoration: none;
+            padding: 12px 25px; border-radius: 8px; font-weight: 700;
+            margin-top: 15px; transition: 0.2s;
+        }
+        .btn-cv:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(37,99,235,0.3); }
+
+        @media (max-width: 768px) {
+            header, .main-content { grid-template-columns: 1fr; text-align: center; }
+            .profile-img { margin: 0 auto; }
+        }
+
+        .btn-mode { background: none; border: 1px solid var(--border); color: var(--text-muted); padding: 8px 15px; border-radius: 20px; cursor: pointer; }
     </style>
 </head>
 <body>
-    <header>
-        <img src="fotka.jpg" alt="Karel Ulčák" class="profile-img">
-        <div>
-            <h1>Karel Ulčák</h1>
-            <p style="font-size: 1.2rem; font-weight: 600; color: #64748b;">Administrativa | IT Helpdesk | Technologie</p>
-            <p><i class="fas fa-envelope"></i> ulcakk@gmail.com | <i class="fas fa-phone"></i> +420 603 929 004</p>
-            <a href="zivotopis.pdf" target="_blank" class="btn-cv"><i class="fas fa-file-pdf"></i> Otevřít životopis (PDF)</a>
-        </div>
-    </header>
 
-    <div class="container">
-        <div class="skills-grid">
-            <div class="skill-card">
-                <i class="fas fa-university" style="font-size: 1.5rem; color: var(--accent);"></i>
-                <h4>Bankovnictví & Obchod</h4>
-                <small>Preciznost v administrativě, práce s financemi a schopnost analýzy potřeb klienta.</small>
+<div class="nav-container">
+    <button class="btn-mode" onclick="document.body.classList.toggle('dark-mode')">Režim zobrazení</button>
+</div>
+
+<header>
+    <img src="fotka.jpg" alt="Karel Ulčák" class="profile-img">
+    <div>
+        <h1>Karel Ulčák</h1>
+        <p style="font-size: 1.2rem; color: var(--accent); font-weight: 600;">Administrativa | Technologie | Zákaznický servis</p>
+        <p style="color: var(--text-muted); margin-bottom: 10px;">
+            <i class="fas fa-envelope"></i> ulcakk@gmail.com | <i class="fas fa-phone"></i> +420 603 929 004
+        </p>
+        <a href="zivotopis.pdf" target="_blank" class="btn-cv">
+            <i class="fas fa-file-pdf"></i> Otevřít kompletní životopis
+        </a>
+    </div>
+</header>
+
+<div class="container">
+    
+    <h3><i class="fas fa-briefcase"></i> Univerzální dovednosti pro váš tým</h3>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <i class="fas fa-user-shield"></i>
+            <h4>Klientský servis & Bankovnictví</h4>
+            <small>Zkušenost s analýzou potřeb klientů, prací s hotovostí a řešením reklamací s důrazem na profesionalitu.</small>
+        </div>
+        <div class="skill-card">
+            <i class="fas fa-headset"></i>
+            <h4>Helpdesk & Podpora</h4>
+            <small>Schopnost diagnostikovat technické problémy a srozumitelně navádět uživatele k jejich řešení.</small>
+        </div>
+        <div class="skill-card">
+            <i class="fas fa-database"></i>
+            <h4>Systémová správa</h4>
+            <small>Rychlá adaptace na firemní software, správa dat v e-shopech a vedení technické dokumentace.</small>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="left-col">
+            <div class="card">
+                <h3><i class="fas fa-info-circle"></i> O mně</h3>
+                <p>Můj profesní profil propojuje <strong>preciznost administrativy s technickým rozhledem</strong>. Ať už jde o práci v bance, kde je klíčová důvěra a přesnost, nebo o technický helpdesk, kde rozhoduje rychlost a logika, dokážu nabídnout zodpovědný přístup. Aktuálně se věnuji samostudiu technologií OZE (FVE, tepelná čerpadla), což potvrzuje mou schopnost neustále se učit novým věcem.</p>
             </div>
-            <div class="skill-card">
-                <i class="fas fa-headset" style="font-size: 1.5rem; color: var(--accent);"></i>
-                <h4>IT & Helpdesk</h4>
-                <small>Diagnostika technických závad a správa systémů. Schopnost srozumitelně vysvětlit techniku.</small>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-solar-panel" style="font-size: 1.5rem; color: var(--accent);"></i>
-                <h4>Moderní technologie</h4>
-                <small>Aktivní přehled v oblasti OZE (fotovoltaika, tepelná čerpadla). Rychlá orientace v technické dokumentaci.</small>
+
+            <div class="card">
+                <h3><i class="fas fa-history"></i> Vybrané zkušenosti</h3>
+                <div class="job-item">
+                    <div class="job-header"><span>Specialista technické podpory a reklamací</span> <span>2025</span></div>
+                    <div class="job-desc">Diagnostika závad, komunikace se zákazníky a servisy, práce v interních systémech pro evidenci požadavků. (Vhodné pro Helpdesk)</div>
+                </div>
+                <div class="job-item">
+                    <div class="job-header"><span>Administrace a klientský prodej</span> <span>2003–2015</span></div>
+                    <div class="job-desc">Finanční poradenství, přímý prodej technologií a správa e-shopů. Zkušenost s platebním stykem a péčí o klíčové zákazníky. (Vhodné pro Banky/Obchod)</div>
+                </div>
+                <div class="job-item">
+                    <div class="job-header"><span>Technický provoz a logistika</span> <span>2016–2024</span></div>
+                    <div class="job-desc">Organizace procesů, odpovědnost za dodržování postupů a práce s firemními databázemi.</div>
+                </div>
             </div>
         </div>
 
-        <div class="main-content">
-            <div class="left-col">
-                <div class="card">
-                    <h3><i class="fas fa-user"></i> Profesní profil</h3>
-                    <p>Technicky založený profesionál s bohatými zkušenostmi z obchodu a výroby. Moje kariéra spojuje precizní práci se systémy s přímým kontaktem se zákazníkem. Vynikám v diagnostice problémů a hledání řešení.</p>
-                </div>
-                <div class="card">
-                    <h3><i class="fas fa-history"></i> Zkušenosti</h3>
-                    <div class="job-item">
-                        <strong>Technický specialista / Reklamace</strong> (HP TRONIC - Datart)<br>
-                        <small>Práce v interních systémech, diagnostika a technická podpora.</small>
-                    </div>
-                    <div class="job-item">
-                        <strong>Specialista provozu a logistiky</strong> (VEPAK, Continental)<br>
-                        <small>Zodpovědnost za plynulost procesů a evidenci dat.</small>
-                    </div>
-                    <div class="job-item">
-                        <strong>Klientský servis a prodej</strong> (VS COLOR)<br>
-                        <small>Odborné konzultace pro zákazníky a práce s hotovostí.</small>
-                    </div>
-                </div>
+        <div class="right-col">
+            <div class="card">
+                <h3><i class="fas fa-graduation-cap"></i> Vzdělání</h3>
+                <p><strong>Maturitní zkouška</strong><br>Obor: Podnikání<br><small>Znalosti ekonomiky, práva a administrativy.</small></p>
             </div>
-            <div class="right-col">
-                <div class="card">
-                    <h3><i class="fas fa-graduation-cap"></i> Vzdělání</h3>
-                    <strong>Maturita: Podnikání</strong><br>
-                    <small>SOŠ Frýdek-Místek</small>
-                </div>
-                <div class="card">
-                    <h3><i class="fas fa-cog"></i> Dovednosti</h3>
-                    <ul style="padding-left: 20px; font-size: 0.9rem;">
-                        <li>Firemní informační systémy</li>
-                        <li>Pokročilá práce s PC a MS Office</li>
-                        <li>Technická diagnostika</li>
-                        <li>Aktivní řidič (sk. B)</li>
-                        <li>Orientace v OZE technologiích</li>
-                    </ul>
-                </div>
+
+            <div class="card">
+                <h3><i class="fas fa-check-circle"></i> Silné stránky</h3>
+                <ul style="list-style: none; font-size: 0.9rem;">
+                    <li><i class="fas fa-check" style="color:var(--accent)"></i> <strong>Komunikace:</strong> Příjemné vystupování v bance i obchodu.</li>
+                    <li><i class="fas fa-check" style="color:var(--accent)"></i> <strong>Technika:</strong> Orientace v moderních technologiích (OZE).</li>
+                    <li><i class="fas fa-check" style="color:var(--accent)"></i> <strong>Spolehlivost:</strong> Zodpovědnost za svěřené finance a data.</li>
+                </ul>
+            </div>
+            
+            <div class="card" style="background: var(--bg); text-align: center;">
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Hledám uplatnění, kde mohu využít svou univerzálnost a tah na branku.</p>
             </div>
         </div>
     </div>
-    <footer style="text-align: center; padding: 40px; color: #64748b; font-size: 0.8rem;">
-        Karel Ulčák | 2026 | Vyrobeno pro profesionální prezentaci
-    </footer>
+</div>
+
+<footer style="text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid var(--border);">
+    <p>Karel Ulčák | 2026</p>
+</footer>
+
 </body>
 </html>
