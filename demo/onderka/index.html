@@ -36,7 +36,7 @@
         /* Header */
         header { padding: 40px 5%; background: white; border-bottom: 4px solid var(--primary); display: flex; justify-content: space-between; align-items: center; }
         .logo h1 { font-weight: 800; font-size: 2rem; color: var(--primary); text-transform: uppercase; line-height: 1; }
-        .logo span { font-size: 1.2rem; color: var(--text-muted); font-weight: 400; }
+        .logo span { font-size: 1.2rem; color: #64748b; font-weight: 400; }
 
         /* Navigation */
         nav { background: var(--primary); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
@@ -48,9 +48,18 @@
         section { padding: 80px 10%; border-bottom: 1px solid #eee; }
         .title { font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 30px; text-align: center; text-transform: uppercase; }
 
-        /* Hero / First Div */
-        .hero { height: 50vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('pic/CAS11.jpg') center/cover; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
-        .hero-content h2 { font-size: 2.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        /* Hero Sekce - Tady je ten hlavní obrázek CAS11.jpg */
+        .hero { 
+            height: 60vh; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('CAS11.jpg') center/cover; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+            text-align: center; 
+        }
+        .hero-content h2 { font-size: 2.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); margin-bottom: 10px; }
+        .hero-content p { font-size: 1.2rem; }
 
         /* Cards and Tables */
         .card { background: var(--light); padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 20px; }
@@ -81,7 +90,7 @@
 <body>
 
     <div class="top-bar">
-        <span><i class="fas fa-map-marker-alt"></i> Baška 406, 739 01</span>
+        <span><i class="fas fa-map-marker-alt"></i> Kunčičky u Bašky 406, 739 01</span>
         <span><i class="fas fa-phone"></i> <a href="tel:+420724480687">724 480 687</a></span>
         <span><i class="fas fa-envelope"></i> <a href="mailto:vyvoz-zumpyfm@seznam.cz">vyvoz-zumpyfm@seznam.cz</a></span>
     </div>
@@ -90,9 +99,6 @@
         <div class="logo">
             <h1>Jan Onderka</h1>
             <span>Vývoz odpadních vod</span>
-        </div>
-        <div style="text-align: right; display: none;" id="mobile-only-phone">
-             <a href="tel:+420724480687" style="background: var(--secondary); color: white; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold;">VOLEJTE 724 480 687</a>
         </div>
     </header>
 
@@ -124,9 +130,12 @@
 
     <section id="onas" style="background: var(--light);">
         <h3 class="title">O nás</h3>
-        <div style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+        <div style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; text-align: center;">
             <p><strong>Zajišťujeme čerpání odpadních vod ze žump, jímek, septiků a ČOV.</strong></p>
-            <p>Odvoz provádíme vozidly <strong>Tatra 815 6x6 (11 m³)</strong> a <strong>MAN 4x2 (6 m³)</strong>. Disponujeme běžným dosahem savic 60+ metrů (delší dosah možný po dohodě).</p>
+            <br>
+            <img src="MAN.jpg" alt="Vůz MAN" style="width: 100%; max-width: 500px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            
+            <p>Odvoz provádíme vozidly <strong>Tatra 815 6x6 (11 m³)</strong> a <strong>MAN 4x2 (6 m³)</strong>. Disponujeme běžným dosahem savic 60+ metrů.</p>
             <br>
             <p>Zákazníkovi vždy předáme potvrzení o ekologické likvidaci odpadu na čistírně odpadních vod (ČOV) v souladu se zákonem o odpadech.</p>
         </div>
@@ -134,58 +143,19 @@
 
     <section id="cenik">
         <h3 class="title">Ceník služeb</h3>
-        <p style="text-align: center;">Cena je tvořena dopravou, časem manipulace a poplatkem za likvidaci na ČOV.</p>
+        <p style="text-align: center;">Cena se skládá z dopravy, času manipulace a poplatku za likvidaci.</p>
         
         <table class="pricelist" style="max-width: 600px; margin: 30px auto;">
-            <tr><td>Doprava TATRA</td><td>39 Kč / km</td></tr>
-            <tr><td>Doprava MAN</td><td>35 Kč / km</td></tr>
+            <tr><td>Doprava TATRA</td><td>39 Kč / 1 km</td></tr>
+            <tr><td>Doprava MAN</td><td>35 Kč / 1 km</td></tr>
             <tr><td>Práce (každých 15 min)</td><td>250 Kč</td></tr>
             <tr><td>Likvidace na ČOV</td><td>130 Kč / m³</td></tr>
-            <tr><td colspan="2" style="text-align: center; font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">Ceny jsou smluvní | Neplátce DPH</td></tr>
+            <tr><td colspan="2" style="text-align: center; font-size: 0.8rem; font-weight: normal; color: #64748b;">Ceny jsou smluvní | Neplátce DPH</td></tr>
         </table>
 
+        <div style="text-align: center; margin-top: 30px;">
+            <img src="CASSTAR.jpg" alt="Vozový park" style="width: 100%; max-width: 700px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        </div>
+
         <div class="card" style="margin-top: 30px;">
-            <p><strong>Hromadné vývozy:</strong> Ideální pro menší jímky (např. 5+6 m³). Náklady na dopravu se rozpočítají mezi sousedy, což je pro zákazníka cenově výhodnější.</p>
-        </div>
-    </section>
-
-    <section id="kontakt">
-        <h3 class="title">Kontakt</h3>
-        <div class="contact-grid">
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <p><strong>Adresa</strong><br><a href="https://mapy.cz/s/borebavape" target="_blank">Kunčičky u Bašky 406<br>739 01 Baška</a></p>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-phone-alt"></i>
-                <p><strong>Mobil</strong><br><a href="tel:+420724480687">724 480 687</a></p>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <p><strong>E-mail</strong><br><a href="mailto:vyvoz-zumpyfm@seznam.cz">vyvoz-zumpyfm@seznam.cz</a></p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>IČO: 09560271 | Neplátce DPH</p>
-        <p>Zapsán v Živnostenském rejstříku: ŽÚ/4228/2020/Gro</p>
-        <br>
-        <p>© 2026 Modernizováno pro Jan Onderka | Původní autor: Pavel Seibert</p>
-    </footer>
-
-    <script "https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        // Plynulé scrollování s odsazením kvůli fixnímu menu
-        $('nav a').on('click', function(event) {
-            if (this.hash !== "") {
-                event.preventDefault();
-                var hash = this.hash;
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top - 70
-                }, 800);
-            }
-        });
-    </script>
-</body>
-</html>
+            <p><strong>Hromadné vývozy:</strong> Ideální pro menší jímky (např.
